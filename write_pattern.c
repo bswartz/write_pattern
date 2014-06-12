@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2014 NetApp, Inc.
+ *  All rights reserved.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
