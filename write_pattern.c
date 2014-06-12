@@ -88,12 +88,15 @@ main(int argc, char ** argv)
 	gettimeofday(&tv_end, 0);
 
 	elapsed = (double) (tv_end.tv_sec - tv_start.tv_sec);
-
-	elapsed = (double) (tv_end.tv_sec - tv_start.tv_sec);
 	if (tv_start.tv_usec <= tv_end.tv_usec) {
 		elapsed += 0.000001 * (tv_end.tv_usec - tv_start.tv_usec);
 	} else {
 		elapsed -= 0.000001 * (tv_start.tv_usec - tv_end.tv_usec);
+	}
+
+	if (0 >= elapsed) {
+		fprintf(stderr, "Internal error\n");
+		exit(1);
 	}
 
 	printf("%u\n", (unsigned int) (bytes / elapsed));
